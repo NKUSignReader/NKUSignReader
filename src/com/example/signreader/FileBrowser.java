@@ -421,7 +421,9 @@ public class FileBrowser extends ListActivity {
 			circumgyrateScreen();
 			return true;
 		case EXIT:// exit system
-
+			Intent intent = new Intent();
+			intent.setClass(FileBrowser.this, BookShelfActivity.class);
+			startActivity(intent);
 			this.finish();
 			return true;
 		default:

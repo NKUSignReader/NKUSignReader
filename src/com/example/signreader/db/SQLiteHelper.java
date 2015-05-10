@@ -23,7 +23,7 @@ public class SQLiteHelper extends SQLiteOpenHelper{
 		super(context, name, factory, version);
 	}
 	
-	private static final String DB_CREATE = " create table" + DB_TABLE + 
+	private static final String DB_CREATE = " create table " + DB_TABLE + 
 			" ( " + KEY_ID +" integer primary key autoincrement, "+
 			KEY_NAME+" text not null, "+KEY_WORD+" integer,"+ KEY_PATH + " text);";
 	
