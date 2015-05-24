@@ -258,10 +258,13 @@ public class FileBrowser extends ListActivity {
 						Log.d(tag, "book path is :" + b.getBookPath());
 						Constant.BOOK_ID_IN_DATABASE = mHelper.saveBook(b);
 						mHelper.close();
+						*/
 						Intent i = new Intent();
 						i.putExtra(Constant.FILE_PATH_KEY, filePath);
-//						i.setClass(getApplicationContext(), TxtActivity.class);
-
+						i.setClass(getApplicationContext(), TextPageActivity.class);
+						startActivity(i);
+						this.finish();
+						/*
 						i.setClass(getApplicationContext(), CustomViewActivity.class);
 						startActivity(i);
 						setProgressBarIndeterminateVisibility(true);*/
@@ -321,13 +324,15 @@ public class FileBrowser extends ListActivity {
 						Log.d(tag, "book path is :" + b.getBookPath());
 						Constant.BOOK_ID_IN_DATABASE = mHelper.saveBook(b);
 						mHelper.close();
+						*/
 						Intent i = new Intent();
 //						i.setClass(getApplicationContext(), TxtActivity.class);
 
-						i.setClass(getApplicationContext(), CustomViewActivity.class);
+						i.setClass(getApplicationContext(), TextPageActivity.class);
 						startActivity(i);
+						/*
 						setProgressBarIndeterminateVisibility(true);*/
-						// this.finish();
+						 this.finish();
 					}
 					// UMD[start]; is a UMD; by mingkg21
 					/*
