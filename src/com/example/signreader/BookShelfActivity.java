@@ -40,18 +40,10 @@ public class BookShelfActivity extends Activity {
     private GridView bookShelf;
     private BookOperations bookoperations;
     private int[] data = {
-			R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,
-			R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,
-			R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,
-			R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,
-			R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,
-			R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,
-			R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,
-			R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt,R.drawable.cover_txt
-			
+			R.drawable.cover_txt		
 	};
     private String[] name={
-    		"天龙八部","搜神记","水浒传","黑道悲情"
+    		"教父","搜神记","水浒传","黑道悲情"
     };
     
     private String[] booktitle;
@@ -72,9 +64,8 @@ public class BookShelfActivity extends Activity {
         setContentView(R.layout.shelf_main);
         bookoperations = new BookOperations(this);
         bookoperations.open();
-        bookoperations.insert(new Book(1, "jjkkk", 1212, "教父"));
-        bookoperations.insert(new Book(2, "jjkkk", 1222, "人类简史"));
-        bookoperations.insert(new Book(3, "jjkkk", 1234, "世界是平的"));
+        bookoperations.insert(new Book("",1, "教父", 1212, 0));
+
         booktitle = getAllBooks();
         bookShelf = (GridView) findViewById(R.id.bookShelf);
         ShlefAdapter adapter=new ShlefAdapter();

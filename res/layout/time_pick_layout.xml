@@ -1,16 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_height="match_parent"
-	android:layout_width="fill_parent"
-	android:layout_marginTop="12dp"
-	android:orientation="vertical"
-	android:background="@drawable/layout_bg">
-	  
-	  	<com.example.signreader.wheelview.WheelView android:id="@+id/days"
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content"/>
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="12dp"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:padding="10dp" >
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="#000000"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+         >
+         
+        <TextView 
+            android:id="@+id/dialog_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:textColor="#ffffff"
+            android:text="选择天数"/>
 
-		
+        <com.example.signreader.wheelview.WheelView
+            android:id="@+id/days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+        <Button 
+            android:id="@+id/dialog_commit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="确定计划"/>
+        <Button 
+            android:id="@+id/dialog_cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="取消计划"/>
+    </LinearLayout>
+    
 </LinearLayout>

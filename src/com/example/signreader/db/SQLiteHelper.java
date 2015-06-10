@@ -13,7 +13,9 @@ public class SQLiteHelper extends SQLiteOpenHelper{
 	public static final String KEY_NAME = "name";
 	public static final String KEY_WORD = "word";
 	public static final String KEY_PATH = "path";
-	
+	//public static final String KEY_LEN = "length";
+	public static final String KEY_MARK = "mark";
+	public static final String KEY_CURRENT = "current";
     public SQLiteHelper(Context context)
     {
     	super(context,DB_NAME,null,DB_VERSION);
@@ -25,7 +27,8 @@ public class SQLiteHelper extends SQLiteOpenHelper{
 	
 	private static final String DB_CREATE = " create table " + DB_TABLE + 
 			" ( " + KEY_ID +" integer primary key autoincrement, "+
-			KEY_NAME+" text not null, "+KEY_WORD+" integer,"+ KEY_PATH + " text);";
+			KEY_NAME+" text not null, "+KEY_WORD+" long,"+ KEY_PATH + " text," + KEY_MARK + " integer," + KEY_CURRENT + " integer);";
+	
 	
 	public void onCreate(SQLiteDatabase _db){
 		_db.execSQL(DB_CREATE);

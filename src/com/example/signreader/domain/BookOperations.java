@@ -3,14 +3,17 @@ package com.example.signreader.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.signreader.db.SQLiteHelper;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
+import android.util.Log;
 
-import com.example.signreader.db.SQLiteHelper;
+//import com.example.signreader.db.SQLiteHelper;
 
 //import com.example.signreader.db.DBAdapter;
 
@@ -18,11 +21,7 @@ public class BookOperations {
 	private SQLiteHelper dbHelper;
 	private SQLiteDatabase database;
 	private static final String DB_TABLE = "bookinfo";//数据库表格的名称 
-	public static final String KEY_ID = "_id";
-	public static final String KEY_NAME = "name";
-	public static final String KEY_WORD = "word";
-	public static final String KEY_PATH = "path";
-	private String[] BOOK_TABLE_COLUMNS = {KEY_ID,KEY_NAME,KEY_WORD,KEY_PATH};
+	private String[] BOOK_TABLE_COLUMNS = {SQLiteHelper.KEY_ID,SQLiteHelper.KEY_NAME,SQLiteHelper.KEY_WORD,SQLiteHelper.KEY_PATH,SQLiteHelper.KEY_MARK,SQLiteHelper.KEY_CURRENT};
 	public BookOperations(Context context)
 	{
 		dbHelper = new SQLiteHelper(context);
@@ -30,15 +29,22 @@ public class BookOperations {
 	public void open() throws SQLiteException{
 		database = dbHelper.getWritableDatabase();
 	}
+	public SQLiteDatabase returnDatabase()
+	{
+		return database;
+	}
 	public void close(){
 		dbHelper.close();
 	}
 	public long insert(Book book){
 		ContentValues newValues = new ContentValues();
-		
-		newValues.put(KEY_NAME, book.getName());
-		newValues.put(KEY_WORD, book.getWord());
-		newValues.put(KEY_PATH, book.getBookPath());	
+		//newValues.put(SQLiteHelper.KEY_ID, book.getId());
+		newValues.put(SQLiteHelper.KEY_NAME, book.getName());
+		newValues.put(SQLiteHelper.KEY_WORD, book.getWord());
+		newValues.put(SQLiteHelper.KEY_PATH, book.getBookPath());	
+		//newValues.put(SQLiteHelper.KEY_LEN, book.getLength());	
+		newValues.put(SQLiteHelper.KEY_MARK, book.getMark());
+		newValues.put(SQLiteHelper.KEY_CURRENT, book.getCurrent());
 		return database.insert(DB_TABLE, null, newValues);
 	}
 	public long deleteAllData(){
@@ -46,14 +52,42 @@ public class BookOperations {
 	}
 	
 	public long deleteOneData(long id){
-		return database.delete(DB_TABLE, KEY_ID + "="+ id, null);
+		return database.delete(DB_TABLE, SQLiteHelper.KEY_ID + "="+ id, null);
 	}
 	public long updateOneData(long id, Book book){
 		ContentValues updateValues = new ContentValues();
-		updateValues.put(KEY_NAME, book.getName());
-		updateValues.put(KEY_PATH, book.getBookPath());
-		updateValues.put(KEY_WORD, book.getWord());
-		return database.update(DB_TABLE, updateValues, KEY_ID + "=" + id, null);
+		updateValues.put(SQLiteHelper.KEY_NAME, book.getName());
+		updateValues.put(SQLiteHelper.KEY_WORD, book.getWord());
+		updateValues.put(SQLiteHelper.KEY_PATH, book.getBookPath());
+	//	updateValues.put(SQLiteHelper.KEY_LEN, book.getBookPath());
+		updateValues.put(SQLiteHelper.KEY_MARK, book.getMark());
+		return database.update(DB_TABLE, updateValues, SQLiteHelper.KEY_ID + "=" + id, null);
+	}
+	
+	public int updateSchedue(long id, int current){
+		ContentValues updateValues = new ContentValues();
+		//updateValues.put(SQLiteHelper.KEY_NAME, book.getName());
+		//updateValues.put(SQLiteHelper.KEY_WORD, book.getWord());
+		//updateValues.put(SQLiteHelper.KEY_PATH, book.getBookPath());
+	//	updateValues.put(SQLiteHelper.KEY_LEN, book.getBookPath());
+		//updateValues.put(SQLiteHelper.KEY_MARK, book.getMark());
+		updateValues.put(SQLiteHelper.KEY_CURRENT, current);
+		/*
+		try
+		{
+			String sql = "update " + DB_TABLE + " set " + SQLiteHelper.KEY_CURRENT + " = " +current + " where "+ " mark = " + 10;
+			database.execSQL(sql);
+			Log.e("data",sql);
+		}
+		catch(SQLiteException e)
+		{
+			e.printStackTrace();
+		}*/
+		//String strFilter = "_id=" + id;
+		//String strFilter1 = SQLiteHelper.KEY_MARK +" = " + 10; 
+		String[] args = {String.valueOf(id)};
+		return database.update(DB_TABLE, updateValues, SQLiteHelper.KEY_ID+"=?", args);
+		//return database.update(DB_TABLE, updateValues, null, null);
 	}
 	/*
 	private Book[] ConvertToBook(Cursor cursor){
@@ -65,9 +99,9 @@ public class BookOperations {
 		for(int i=0; i<resultCounts; i++){
 			books[i] = new Book();
 			books[i].setId(cursor.getInt(0));
-			books[i].setWord(cursor.getColumnIndex(KEY_WORD));
-			books[i].setBookPath(cursor.getString(cursor.getColumnIndex(KEY_PATH)));
-			books[i].setName(cursor.getString(cursor.getColumnIndex(KEY_NAME)));
+			books[i].setWord(cursor.getColumnIndex(SQLiteHelper.KEY_WORD));
+			books[i].setBookPath(cursor.getString(cursor.getColumnIndex(SQLiteHelper.KEY_PATH)));
+			books[i].setName(cursor.getString(cursor.getColumnIndex(SQLiteHelper.KEY_NAME)));
 			cursor.moveToNext();
 		}
 		return books;
@@ -81,7 +115,7 @@ public class BookOperations {
 		while(!cursor.isAfterLast())
 		{
 			Book newclass=parseBook(cursor);
-			//Log.e("gelAllClasses",newclass.getName());
+			Log.e("gelAllClasses",newclass.toString());
 			classlist.add(newclass);
 			cursor.moveToNext();
 		}
@@ -92,7 +126,23 @@ public class BookOperations {
 	public List<Book> searchClass(String bookName)
 	{
 		List<Book> searchResult = new ArrayList<Book>();
-		Cursor cursor=database.query(DB_TABLE, BOOK_TABLE_COLUMNS, KEY_NAME+" like "+'\''+bookName+"%\'", null, null, null, null);
+		Cursor cursor=database.query(DB_TABLE, BOOK_TABLE_COLUMNS, SQLiteHelper.KEY_NAME+" like "+'\''+bookName+"%\'", null, null, null, null);
+		cursor.moveToFirst();
+		while(!cursor.isAfterLast())
+		{
+			Book newclass=parseBook(cursor);
+			//Log.e("gelAllClasses",newclass.getName());
+			searchResult.add(newclass);
+			cursor.moveToNext();
+		}
+		cursor.close();
+		return searchResult;
+	}
+	
+	public List<Book> searchClass(long id)
+	{
+		List<Book> searchResult = new ArrayList<Book>();
+		Cursor cursor=database.query(DB_TABLE, BOOK_TABLE_COLUMNS, "_id " + "=" + id, null, null, null, null);
 		cursor.moveToFirst();
 		while(!cursor.isAfterLast())
 		{
@@ -108,11 +158,14 @@ public class BookOperations {
 	private Book parseBook(Cursor cursor)
 	{
 		Book nbook=new Book();
-		nbook.setId((cursor.getInt(0)));
-		nbook.setId(cursor.getInt(0));
-		nbook.setWord(cursor.getColumnIndex(KEY_WORD));
-		nbook.setBookPath(cursor.getString(cursor.getColumnIndex(KEY_PATH)));
-		nbook.setName(cursor.getString(cursor.getColumnIndex(KEY_NAME)));
+		//nbook.setId((cursor.getColumnIndex(SQLiteHelper.KEY_ID)));
+		nbook.setId(cursor.getInt(cursor.getColumnIndex(SQLiteHelper.KEY_ID)));
+		nbook.setWord(cursor.getInt(cursor.getColumnIndex(SQLiteHelper.KEY_WORD)));
+		nbook.setBookPath(cursor.getString(cursor.getColumnIndex(SQLiteHelper.KEY_PATH)));
+		nbook.setName(cursor.getString(cursor.getColumnIndex(SQLiteHelper.KEY_NAME)));
+		//nbook.setLength(cursor.getInt(cursor.getColumnIndex(SQLiteHelper.KEY_LEN)));
+		nbook.setMark(cursor.getInt(cursor.getColumnIndex(SQLiteHelper.KEY_MARK)));
+		nbook.setCurrent(cursor.getInt(cursor.getColumnIndex(SQLiteHelper.KEY_CURRENT)));
 		return nbook;
 	}
 

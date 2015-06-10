@@ -9,13 +9,16 @@ package com.example.signreader;
 
 public final class R {
     public static final class array {
-        public static final int audioEnds=0x7f050001;
-        public static final int htmlEnds=0x7f050004;
-        public static final int imageEnds=0x7f050000;
-        public static final int packageEnds=0x7f050002;
-        public static final int textEnds=0x7f050003;
-        public static final int umdEnds=0x7f050005;
-        public static final int zipEnds=0x7f050006;
+        public static final int audioEnds=0x7f040004;
+        public static final int background=0x7f040002;
+        public static final int colors=0x7f040000;
+        public static final int fontsize=0x7f040001;
+        public static final int htmlEnds=0x7f040007;
+        public static final int imageEnds=0x7f040003;
+        public static final int packageEnds=0x7f040005;
+        public static final int textEnds=0x7f040006;
+        public static final int umdEnds=0x7f040008;
+        public static final int zipEnds=0x7f040009;
     }
     public static final class attr {
     }
@@ -26,73 +29,106 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f040000;
-        public static final int activity_vertical_margin=0x7f040001;
+        public static final int activity_horizontal_margin=0x7f050000;
+        public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int back_left=0x7f020000;
-        public static final int back_right=0x7f020001;
-        public static final int bookshelf_layer_center=0x7f020002;
-        public static final int btn_local=0x7f020003;
-        public static final int circscreen=0x7f020004;
-        public static final int close=0x7f020005;
-        public static final int cover_txt=0x7f020006;
-        public static final int file_list_bg=0x7f020007;
-        public static final int folder32=0x7f020008;
-        public static final int ic_context_menu_add_to_playlist_normal=0x7f020009;
-        public static final int ic_context_menu_play_normal=0x7f02000a;
-        public static final int ic_context_menu_search_normal=0x7f02000b;
-        public static final int ic_launcher=0x7f02000c;
-        public static final int image32=0x7f02000d;
-        public static final int layout_bg=0x7f02000e;
-        public static final int shelves_editbook=0x7f02000f;
-        public static final int shelves_editbook_d=0x7f020010;
-        public static final int text32=0x7f020011;
-        public static final int titlebar_big=0x7f020012;
-        public static final int umd32=0x7f020013;
-        public static final int uponelevel=0x7f020014;
-        public static final int webtext=0x7f020015;
-        public static final int webtext32=0x7f020016;
-        public static final int wheel_bg=0x7f020017;
-        public static final int wheel_val=0x7f020018;
+        public static final int addbookmark=0x7f020000;
+        public static final int back_left=0x7f020001;
+        public static final int back_right=0x7f020002;
+        public static final int bg=0x7f020003;
+        public static final int bookshelf_layer_center=0x7f020004;
+        public static final int btn_local=0x7f020005;
+        public static final int circscreen=0x7f020006;
+        public static final int close=0x7f020007;
+        public static final int cover_txt=0x7f020008;
+        public static final int file_list_bg=0x7f020009;
+        public static final int folder32=0x7f02000a;
+        public static final int ic_context_menu_add_to_playlist_normal=0x7f02000b;
+        public static final int ic_context_menu_play_normal=0x7f02000c;
+        public static final int ic_context_menu_search_normal=0x7f02000d;
+        public static final int ic_launcher=0x7f02000e;
+        public static final int image32=0x7f02000f;
+        public static final int layout_bg=0x7f020010;
+        public static final int setbackgroud=0x7f020011;
+        public static final int setfont=0x7f020012;
+        public static final int shelves_editbook=0x7f020013;
+        public static final int shelves_editbook_d=0x7f020014;
+        public static final int text32=0x7f020015;
+        public static final int titlebar_big=0x7f020016;
+        public static final int umd32=0x7f020017;
+        public static final int uponelevel=0x7f020018;
+        public static final int viewbookmark=0x7f020019;
+        public static final int webtext=0x7f02001a;
+        public static final int webtext32=0x7f02001b;
+        public static final int wheel_bg=0x7f02001c;
+        public static final int wheel_val=0x7f02001d;
     }
     public static final class id {
-        public static final int IndexRelativeLayout=0x7f090002;
-        public static final int LinearLayout01=0x7f090003;
-        public static final int action_settings=0x7f09000e;
-        public static final int allApps=0x7f09000b;
-        public static final int bookShelf=0x7f090009;
-        public static final int btn_leftTop=0x7f090005;
-        public static final int btn_rightTop=0x7f090007;
-        public static final int days=0x7f09000d;
-        public static final int head=0x7f090008;
+        public static final int IndexRelativeLayout=0x7f090009;
+        public static final int LinearLayout01=0x7f09000a;
+        public static final int action_settings=0x7f09001a;
+        public static final int allApps=0x7f090014;
+        public static final int bookShelf=0x7f090012;
+        public static final int btn_leftTop=0x7f09000e;
+        public static final int btn_rightTop=0x7f090010;
+        public static final int close_dialog=0x7f090002;
+        public static final int days=0x7f090017;
+        public static final int dialog_activity_button=0x7f090004;
+        public static final int dialog_cancel=0x7f090019;
+        public static final int dialog_commit=0x7f090018;
+        public static final int dialog_custom_button=0x7f090003;
+        public static final int dialog_title=0x7f090016;
+        public static final int fontcolorspinner=0x7f090006;
+        public static final int fontsizespinner=0x7f090005;
+        public static final int gallery=0x7f09000d;
+        public static final int gotoreader=0x7f090008;
+        public static final int head=0x7f090011;
         public static final int imageView1=0x7f090001;
-        public static final int imageViewIcon=0x7f09000c;
-        public static final int localBooks=0x7f090004;
+        public static final int imageViewIcon=0x7f090015;
+        public static final int localBooks=0x7f09000b;
         public static final int read_view=0x7f090000;
-        public static final int sliding=0x7f09000a;
-        public static final int tv_head=0x7f090006;
+        public static final int sliding=0x7f090013;
+        public static final int switcher=0x7f09000c;
+        public static final int tv_head=0x7f09000f;
+        public static final int viewfont=0x7f090007;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_txtpage=0x7f030001;
         public static final int bookitem=0x7f030002;
-        public static final int indexactivity=0x7f030003;
-        public static final int shelf_head=0x7f030004;
-        public static final int shelf_main=0x7f030005;
-        public static final int time_pick_layout=0x7f030006;
+        public static final int dialog=0x7f030003;
+        public static final int dialog_test=0x7f030004;
+        public static final int fontset=0x7f030005;
+        public static final int indexactivity=0x7f030006;
+        public static final int picturebrowser=0x7f030007;
+        public static final int shelf_head=0x7f030008;
+        public static final int shelf_main=0x7f030009;
+        public static final int time_pick_layout=0x7f03000a;
     }
     public static final class menu {
         public static final int main=0x7f080000;
     }
     public static final class string {
+        public static final int about=0x7f060009;
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
+        public static final int back=0x7f060007;
+        public static final int changebg=0x7f06000e;
+        public static final int changefont=0x7f06000d;
+        public static final int circumgyrate=0x7f06000f;
         public static final int current_dir=0x7f060004;
+        public static final int exit=0x7f060012;
         public static final int hello_world=0x7f060002;
         public static final int html=0x7f060005;
+        public static final int savebookmark=0x7f060010;
         public static final int sdcard=0x7f060003;
+        public static final int setfontcolor=0x7f06000b;
+        public static final int setfontsize=0x7f06000a;
+        public static final int sure=0x7f060008;
         public static final int up_one_level=0x7f060006;
+        public static final int viewbookmark=0x7f060011;
+        public static final int viewfont=0x7f06000c;
     }
     public static final class style {
         /** 
@@ -121,5 +157,6 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f070001;
+        public static final int DialogActivityTheme=0x7f070002;
     }
 }

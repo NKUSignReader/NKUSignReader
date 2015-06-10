@@ -5,6 +5,9 @@ public class Book {
 	private String bookPath;
 	private int word;
 	private String name;
+	//private int length;
+	private int mark;
+	private int current;
 	
 	public int getId() {
 		return id;
@@ -31,18 +34,41 @@ public class Book {
 		this.name = name;
 	}
 	
+	public int getCurrent()
+	{
+		return this.current;
+	}
+	
+	public void setCurrent(int cur)
+	{
+		this.current=cur;
+	}
+	
+	public int getMark()
+	{
+		return this.mark;
+	}
+	
+	public void setMark(int mar)
+	{
+		this.mark=mar;
+	}
+	
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", bookPath=" + bookPath + ", word=" + word
-				+ ", name=" + name + "]";
+				+ ", name=" + name + "mark" + mark + "current"+ current +"]";
 	}
 	
-	public Book(int id, String bookPath, int word, String name) {
+	public Book(String bookPath, int word, String name,int mar,int cur) {
 		super();
-		this.id = id;
+		this.id = 0;
 		this.bookPath = bookPath;
 		this.word = word;
 		this.name = name;
+		//this.length = len;
+		this.mark = mar;
+		this.current = cur;
 	}
 	
 	public Book() {

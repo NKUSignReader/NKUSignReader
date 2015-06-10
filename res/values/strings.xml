@@ -8,4 +8,17 @@
 	<string name="current_dir">.</string>
 	<string name="html">text/html</string>
 	<string name="up_one_level">返回上级..</string>
+	<string name="back">后退</string>
+	<string name="sure">确定</string>
+	<string name="about">关于...</string>
+	<string name="setfontsize">设置字体大小</string>
+	<string name="setfontcolor">设置字体颜色</string>
+	<string name="viewfont">文字预览</string>
+	<string name="changefont">设置字体</string>
+	<string name="changebg">设置背景</string>
+	<string name="circumgyrate">旋转</string>
+	<string name="savebookmark">增加书签</string>
+	<string name="viewbookmark">浏览书签</string>
+	<string name="exit">退出</string>
+	
 </resources>
