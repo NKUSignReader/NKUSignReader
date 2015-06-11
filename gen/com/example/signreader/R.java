@@ -67,30 +67,40 @@ public final class R {
     public static final class id {
         public static final int IndexRelativeLayout=0x7f090009;
         public static final int LinearLayout01=0x7f09000a;
-        public static final int action_settings=0x7f09001a;
-        public static final int allApps=0x7f090014;
-        public static final int bookShelf=0x7f090012;
-        public static final int btn_leftTop=0x7f09000e;
-        public static final int btn_rightTop=0x7f090010;
+        public static final int RelativeLayout1=0x7f09000c;
+        public static final int action_settings=0x7f090024;
+        public static final int alarm_ll1=0x7f09000d;
+        public static final int alarm_ll2=0x7f090012;
+        public static final int allApps=0x7f09001e;
+        public static final int bookShelf=0x7f09001c;
+        public static final int btn1=0x7f090017;
+        public static final int btnCancel=0x7f090014;
+        public static final int btnCommit=0x7f090013;
+        public static final int btn_leftTop=0x7f090018;
+        public static final int btn_rightTop=0x7f09001a;
         public static final int close_dialog=0x7f090002;
-        public static final int days=0x7f090017;
+        public static final int days=0x7f090021;
         public static final int dialog_activity_button=0x7f090004;
-        public static final int dialog_cancel=0x7f090019;
-        public static final int dialog_commit=0x7f090018;
+        public static final int dialog_cancel=0x7f090023;
+        public static final int dialog_commit=0x7f090022;
         public static final int dialog_custom_button=0x7f090003;
-        public static final int dialog_title=0x7f090016;
+        public static final int dialog_title=0x7f090020;
         public static final int fontcolorspinner=0x7f090006;
         public static final int fontsizespinner=0x7f090005;
-        public static final int gallery=0x7f09000d;
+        public static final int gallery=0x7f090016;
         public static final int gotoreader=0x7f090008;
-        public static final int head=0x7f090011;
+        public static final int head=0x7f09001b;
         public static final int imageView1=0x7f090001;
-        public static final int imageViewIcon=0x7f090015;
+        public static final int imageViewIcon=0x7f09001f;
         public static final int localBooks=0x7f09000b;
         public static final int read_view=0x7f090000;
-        public static final int sliding=0x7f090013;
-        public static final int switcher=0x7f09000c;
-        public static final int tv_head=0x7f09000f;
+        public static final int sliding=0x7f09001d;
+        public static final int switcher=0x7f090015;
+        public static final int tvDetail=0x7f090011;
+        public static final int tvNotification=0x7f09000e;
+        public static final int tvNotification1=0x7f09000f;
+        public static final int tvTitle=0x7f090010;
+        public static final int tv_head=0x7f090019;
         public static final int viewfont=0x7f090007;
     }
     public static final class layout {
@@ -101,10 +111,12 @@ public final class R {
         public static final int dialog_test=0x7f030004;
         public static final int fontset=0x7f030005;
         public static final int indexactivity=0x7f030006;
-        public static final int picturebrowser=0x7f030007;
-        public static final int shelf_head=0x7f030008;
-        public static final int shelf_main=0x7f030009;
-        public static final int time_pick_layout=0x7f03000a;
+        public static final int my_alarm=0x7f030007;
+        public static final int picturebrowser=0x7f030008;
+        public static final int remindersett=0x7f030009;
+        public static final int shelf_head=0x7f03000a;
+        public static final int shelf_main=0x7f03000b;
+        public static final int time_pick_layout=0x7f03000c;
     }
     public static final class menu {
         public static final int main=0x7f080000;
